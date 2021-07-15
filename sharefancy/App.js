@@ -6,11 +6,11 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
-
-import { LinearTextGradient } from "react-native-text-gradient";
+import { FAB } from 'react-native-paper';
 
 const App = () => {
 
@@ -18,42 +18,35 @@ const App = () => {
   return (
     <SafeAreaView>
       <View>
-      <LinearTextGradient
-  style={{ fontWeight: "bold", fontSize: 72 }}
-  locations={[0, 1]}
-  colors={["red", "blue"]}
-  start={{ x: 0, y: 0 }}
-  end={{ x: 1, y: 0 }}
->
-  Fancy
-</LinearTextGradient>;
+        <Text style={styles.heading}>
+          Fancy.
+        </Text>
       </View>
+      <FAB
+    style={styles.fab}
+    small
+    icon="plus"
+    onPress={() => console.log('Pressed')}
+  />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  fab: {
+    position: 'absolute',
+    margin: 20,
+    right: 0,
+    bottom: 0,
+  },
   heading:{
     marginLeft: 32,
     marginTop: 40,
-    color:'#000'
+    fontSize: 30,
+    color:'#0083BE',
+    fontWeight:'bold'
   },  
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+ 
 });
 
 export default App;
